@@ -39,7 +39,7 @@ ds-nyc-ride-services-proj
 ```
 ## Section 3: instructions for reproducing results
 ### Acquiring the Data:
-From the link in source data, we downloaded the PARQUET file “High Volume For-Hire Vehicle Trip Records” for each month and year. These files were saved under the same folder (this zipped folder is too large to upload to Github).  [1] <br /><br />
+From the link in source data, we downloaded the PARQUET file “High Volume For-Hire Vehicle Trip Records” for each month and year[1]. These files were saved under the same folder (this zipped folder is too large to upload to Github).  [1] <br /><br />
 From there, we ran the script “cleaning_data.ipynb” and added the path to the folder containing the data. This script includes a method creating_clean_data that goes through the PARQUET file and stores all the Uber and Lyft data from that month. The method adds a column called “total fare” that is the sum of the base_passenger_fare, tolls, tips, tolls, tips, sales_tax, congestion_surcharge, and airport_fee for each ride. The method then finds the average total fare for uber and lyft. The month, year, average uber total fare, average Lyft total fare, average uber base passenger fare, and average lyft base passenger fare were appended into a new data frame. The method process_directory repeats this process for each PARQUET file in the folder. <br /><br />
 This new dataframe was written to a csv file called “cleaned_data.csv” <br /><br />
 ### Analyzing the Data:
@@ -47,3 +47,4 @@ To analyze the data the script “data_analysis.ipynb” was run. The data frame
 Once this strong correlation was determined, we used the linear regression model to predict Uber total fares. A scatter plot of the actual average Uber total fares and the predicted average Uber total fares was created. <br /><br />
 
 ### References
+[1]“Raw Data - TLC,” Nyc.gov, 2024. https://www.nyc.gov/site/tlc/about/raw-data.page (accessed Oct. 21, 2024).
